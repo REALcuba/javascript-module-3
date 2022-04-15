@@ -42,7 +42,7 @@ const createChapters = (episode) => {
  }
 
 
-const fetchEpisodesName = () => {
+const fetchEpisodes = () => {
     
     fetch("https://rickandmortyapi.com/api/episode/1")
     .then(res => res.json())
@@ -53,7 +53,7 @@ const fetchEpisodesName = () => {
 function Error() {
      console.log("not working");
  }
-fetchEpisodesName()
+fetchEpisodes()
 
 // create episodes div
 
@@ -68,6 +68,33 @@ const createEpisodeDiv = () => {
 const episodeDiv = document.createElement("div")
 episodesDiv.appendChild(episodeDiv)
 episodeDiv.classList.add("episodeDiv")
-
+ return episodeDiv
 }
-createEpisodeDiv()
+
+
+//fetching episodes data
+
+//  const buildType = (results) =>{
+//    const element = document.createElement("div")
+//    element.classList.add("results")
+//    episodesDiv.appendChild.element
+//    element.innerContent = results.image
+//    return element
+//  }
+
+// function paintEpisode(episodeImg) {
+//      episodeImg.src = "https://rickandmortyapi.com/api/character/avatar/"
+     
+//     episodeImg.forEach(() => {
+//          buildType()
+//      })
+     
+//  }
+function fetchEpisodeData() {
+    fetch("https://rickandmortyapi.com/api/character/2")
+    .then(res => res.json)
+    .then(createEpisodeDiv())
+    .catch(Error )
+   
+}
+fetchEpisodeData()

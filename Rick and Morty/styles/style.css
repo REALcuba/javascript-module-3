@@ -31,6 +31,8 @@ body {
 
 /* chapters List*/
 .chapters_list{
+    display: column;
+    align-items: center;
     background-color: rgb(177, 227, 103);
     width: 280px;
     height: 650px;
