@@ -1,0 +1,23 @@
+/* Rick & Morti section */
+body {
+    margin: 0;
+}
+.ramApiWraper{
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    background-color: rgba(0,0,0,0.7);
+    box-shadow: 1px 1px 1px #eaf134
+}
+
+.ramApiText{
+    color: #1df7f6;
+    display: inline-flex;
+    align-content: center;
+    margin: 10px 35px;
+    font-family: 'Give You Glory', cursive;
+    font-weight: bold;
+    font-size: 23px;
+    text-shadow: 2px 2px 4px red, 0 0 1em  #eaf134, 0 0 0.2em  #eaf134;
+    /* text-shadow: 1px 1px 2px #eaf134; */
+}
