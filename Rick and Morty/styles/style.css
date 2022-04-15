@@ -2,7 +2,7 @@
 body {
     margin: 0;
 }
-.ramApiWraper{
+.ramApiWrapper{
     width: 100%;
     height: 40px;
     margin: 0;
@@ -19,5 +19,45 @@ body {
     font-weight: bold;
     font-size: 23px;
     text-shadow: 2px 2px 4px red, 0 0 1em  #eaf134, 0 0 0.2em  #eaf134;
-    /* text-shadow: 1px 1px 2px #eaf134; */
+    
+}
+/* elements_wrapper */
+
+
+#elements_wrapper{
+    display: flex;
+
+}
+
+/* chapters List*/
+.chapters_list{
+    background-color: rgb(177, 227, 103);
+    width: 280px;
+    height: 650px;
+}
+
+/* chapters wrapper Div */
+
+#chapters_wrapper {
+    width: 100%;
+    background-color: rgb(129, 129, 124);
+}
+
+/* chapters Div */
+
+#episodesDiv{
+    width: 850px;
+    height:600px;
+    background-color:white;
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+}
+
+.episodeDiv{
+    width: 15%;
+    height:20%;
+    background-color:rgb(149, 108, 108);
+    border-radius: 20px;
+    margin: 20px;
 }
