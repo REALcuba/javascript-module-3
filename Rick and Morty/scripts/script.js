@@ -45,7 +45,7 @@ const createChapters = () => {
  }
 
 
-const fetchEpisodes = () => {
+const fetchEpisodes = (episode) => {
     
     fetch("https://rickandmortyapi.com/api/episode/1")
     .then(episode => episode.json())
