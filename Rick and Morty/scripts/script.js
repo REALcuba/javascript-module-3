@@ -28,26 +28,29 @@ chapters_wrapper.id = "chapters_wrapper";
 // create chapters List function  
 
 const episodeOlEl = document.createElement("ol")
+     episodeOlEl.classList.add("episodeOlEl")
     chapters_list.append(episodeOlEl)
 
   const episodeLiEl = document.createElement("li")
     episodeOlEl.appendChild(episodeLiEl)
-    
+    episodeLiEl.classList.add("episodeLiEl")
 
-const createChapters = (episode) => {
-    // episode.forEach(episode => {
-    //     return episodeLiEl(episode.name)}
-    //     )
-    episodeLiEl.innerText = episode.name
+const createChapters = () => {
+    episode.forEach(episode => {
+        episodeName = episode[result][character][name]
+        return episodeName}
+        )
+    return episodeLiEl.innerText = episode.name;
+    
  }
 
 
 const fetchEpisodes = () => {
     
     fetch("https://rickandmortyapi.com/api/episode/1")
-    .then(res => res.json())
+    .then(episode => episode.json())
     .then(createChapters)
-    .catch(Error )
+    .catch(Error)
 }
 
 function Error() {
@@ -82,19 +85,22 @@ episodeDiv.classList.add("episodeDiv")
 //    return element
 //  }
 
-// function paintEpisode(episodeImg) {
-//      episodeImg.src = "https://rickandmortyapi.com/api/character/avatar/"
+function paintEpisode(episodeImg) {
+     episodeImg.src = "https://rickandmortyapi.com/api/character/avatar/2.jpg"
      
-//     episodeImg.forEach(() => {
-//          buildType()
-//      })
+    // episodeImg.forEach(() => {
+    //      buildType()
+    //  })
      
-//  }
+ }
 function fetchEpisodeData() {
     fetch("https://rickandmortyapi.com/api/character/2")
     .then(res => res.json)
-    .then(createEpisodeDiv())
-    .catch(Error )
+    .then( createEpisodeDiv(paintEpisode))
+    .catch(Error)
    
+    // function getavatarImag() {
+    //    return  avatarImg.url = "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+    // }
 }
 fetchEpisodeData()
