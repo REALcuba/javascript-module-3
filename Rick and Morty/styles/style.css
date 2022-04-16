@@ -67,7 +67,7 @@ body {
 .episodeDiv{
     width: 15%;
     height:20%;
-    background-color:rgb(149, 108, 108);
+    /* background-color:rgb(149, 108, 108); */
     border-radius: 20px;
     margin: 20px;
 }
