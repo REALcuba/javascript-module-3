@@ -42,22 +42,22 @@ const loadButton = document.createElement("button")
     loadButton.innerText = "load episodes"
     chapters_list.appendChild(loadButton)
 
-const createChapters = () => {
-episodeLiEl.innerText = "chapters_list"
+const createChapters = (episode) => {
+episodeLiEl.innerText = episode.name
     // episode.forEach(episode => {
     //     episodeName = episode[result][character]
     //     episodeLiEl.innerText = episode.name
     //     return episodeName
     //     }
     //   )
-    return ;
+   
     
  }
 
 
 const fetchEpisodes = () => {
     
-    fetch("https://rickandmortyapi.com/api/episode/")
+    fetch("https://rickandmortyapi.com/api/episode/1")
     .then(episode => episode.json())
     .then(createChapters)
     .catch(Error)
