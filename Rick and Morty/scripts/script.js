@@ -41,11 +41,16 @@ const createChapters = (episodes) => {
     const episodeLiEl = document.createElement("li");
     episodeOlEl.appendChild(episodeLiEl);
     episodeLiEl.classList.add("episodeLiEl");
-
     episodeLiEl.innerText = episode.name;
-    episodeLiEl.addEventListener("click", () => createEpisodeDiv(episodes));
+    // if(episode.info.next ) {
+       episodeLiEl.addEventListener("click", () => createEpisodesDiv(episodes.info.next));
+    // }
+     
   });
 };
+const createEpisodesLink = (episode) => {
+
+}
 
 const fetchEpisodesList = () => {
   fetch("https://rickandmortyapi.com/api/episode")
@@ -62,26 +67,30 @@ episodesDiv.id = "episodesDiv";
 
 //create episode div
 
-const createEpisodeDiv = (episodes) => {
+const createEpisodesDiv = (episode) => {
   const episodeDiv = document.createElement("div");
   episodesDiv.appendChild(episodeDiv);
   episodeDiv.classList.add("episodeDiv");
-  episodes.forEach((episodes) => {
-    episodeDiv.innerText =
-      `${episodes.name}` + `${episodes.episode}| ${episodes.air_date}`;
+//   episode.forEach((episode) => {
+    
+    episodeDiv.innerText = `${episode.name}` + `${episode.episode}| ${episode.air_date}`;
+      
 
-    //     console.log(episodes);
-  });
+        console.log(episode);
+//   }
+//   );
 };
 
 //fetching episodes data
 
 function fetchEpisodesData() {
-  fetch("https://rickandmortyapi.com/api/episode/")
+  fetch("https://rickandmortyapi.com/api/episode")
     .then((res) => res.json())
-    .then((episodes) => createEpisodesDiv(episodes))
+    .then((episode) => createEpisodesDiv(episode))
     .catch(Error);
 }
+
+// create 
 
 function Error() {
   console.log("not working");
