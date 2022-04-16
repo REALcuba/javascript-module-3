@@ -32,9 +32,7 @@ const episodeOlEl = document.createElement("ol")
      episodeOlEl.classList.add("episodeOlEl")
     chapters_list.append(episodeOlEl)
 
-const episodeLiEl = document.createElement("li")
-    episodeOlEl.appendChild(episodeLiEl)
-    episodeLiEl.classList.add("episodeLiEl")
+
 
     //create load button
 const loadButton = document.createElement("button")
@@ -42,8 +40,17 @@ const loadButton = document.createElement("button")
     loadButton.innerText = "load episodes"
     chapters_list.appendChild(loadButton)
 
-const createChapters = (episode) => {
-episodeLiEl.innerText = episode.name
+const createChapters = (episodes) => {
+    console.log(episodes)
+
+episodes.results.forEach(episode => {
+    const episodeLiEl = document.createElement("li")
+    episodeOlEl.appendChild(episodeLiEl)
+    episodeLiEl.classList.add("episodeLiEl")
+    console.log (episode.name)
+    episodeLiEl.innerText = episode.name
+});
+
     // episode.forEach(episode => {
     //     episodeName = episode[result][character]
     //     episodeLiEl.innerText = episode.name
@@ -57,9 +64,9 @@ episodeLiEl.innerText = episode.name
 
 const fetchEpisodes = () => {
     
-    fetch("https://rickandmortyapi.com/api/episode/1")
-    .then(episode => episode.json())
-    .then(createChapters)
+    fetch("https://rickandmortyapi.com/api/episode")
+    .then(res => res.json())
+    .then(episodes => createChapters(episodes))
     .catch(Error)
 }
 
