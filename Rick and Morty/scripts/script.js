@@ -43,7 +43,7 @@ const createChapters = (episodes) => {
     episodeLiEl.classList.add("episodeLiEl");
     episodeLiEl.innerText = episode.name;
     // if(episode.info.next ) {
-       episodeLiEl.addEventListener("click", () => createEpisodesDiv(episodes.info.next));
+       episodeLiEl.onCLick = (episode) => createEpisodesDiv(episode.info.next);
     // }
      
   });
@@ -67,6 +67,7 @@ episodesDiv.id = "episodesDiv";
 
 //create episode div
 
+
 const createEpisodesDiv = (episode) => {
   const episodeDiv = document.createElement("div");
   episodesDiv.appendChild(episodeDiv);
@@ -74,9 +75,11 @@ const createEpisodesDiv = (episode) => {
 //   episode.forEach((episode) => {
     
     episodeDiv.innerText = `${episode.name}` + `${episode.episode}| ${episode.air_date}`;
-      
+      const createEpisodeLink = () => {
+    
+}
 
-        console.log(episode);
+        ;
 //   }
 //   );
 };
