@@ -25,39 +25,49 @@ const chapters_wrapper = document.createElement("div");
 elements_wrapper.appendChild(chapters_wrapper);
 chapters_wrapper.id = "chapters_wrapper";
 
+
 // create chapters List function  
 
 const episodeOlEl = document.createElement("ol")
      episodeOlEl.classList.add("episodeOlEl")
     chapters_list.append(episodeOlEl)
 
-  const episodeLiEl = document.createElement("li")
+const episodeLiEl = document.createElement("li")
     episodeOlEl.appendChild(episodeLiEl)
     episodeLiEl.classList.add("episodeLiEl")
 
+    //create load button
+const loadButton = document.createElement("button")
+    loadButton.classList.add('loadButton')
+    loadButton.innerText = "load episodes"
+    chapters_list.appendChild(loadButton)
+
 const createChapters = () => {
-    episode.forEach(episode => {
-        episodeName = episode[result][character][name]
-        return episodeName}
-        )
-    return episodeLiEl.innerText = episode.name;
+episodeLiEl.innerText = "chapters_list"
+    // episode.forEach(episode => {
+    //     episodeName = episode[result][character]
+    //     episodeLiEl.innerText = episode.name
+    //     return episodeName
+    //     }
+    //   )
+    return ;
     
  }
 
 
-const fetchEpisodes = (episode) => {
+const fetchEpisodes = () => {
     
-    fetch("https://rickandmortyapi.com/api/episode/1")
+    fetch("https://rickandmortyapi.com/api/episode/")
     .then(episode => episode.json())
     .then(createChapters)
     .catch(Error)
 }
 
+
+fetchEpisodes()
 function Error() {
      console.log("not working");
  }
-fetchEpisodes()
-
 // create episodes div
 
 const episodesDiv = document.createElement("div")

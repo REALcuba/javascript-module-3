@@ -31,11 +31,19 @@ body {
 
 /* chapters List*/
 .chapters_list{
-    display: column;
+    display:flex; 
+    flex-direction: column;
     align-items: center;
+    justify-content:space-between;
     background-color: rgb(177, 227, 103);
     width: 280px;
     height: 650px;
+}
+.loadButton{
+    margin-bottom: 20px;
+    background-color: rgba(0, 45, 20,0.5);
+    color: white;
+    border-radius: 10px;
 }
 
 /* chapters wrapper Div */
