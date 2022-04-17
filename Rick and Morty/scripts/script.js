@@ -42,13 +42,21 @@ const createChapters = (episodes) => {
     episodeOlEl.appendChild(episodeLiEl);
     episodeLiEl.classList.add("episodeLiEl");
     episodeLiEl.innerText = episode.name;
-     episodeLiEl.addEventListener("click", () => console.log("potato"))
+     episodeLiEl.addEventListener("click", () => createEpisodeLink(episode))
     // if(episode.info.next ) {
       //  episodeLiEl.onCLick = () => console.log("potato");;
     // }
      return episodeLiEl
   });
 };
+const createEpisodeLink = (episode) => {
+    const episodeLink = document.createElement("div")
+    episodesDiv.appendChild(episodeLink)
+    episodeLink.classList.add("episodeLink")
+    episodeLink.innerText = `${episode.name}`;
+   
+    return episodeLink
+}
 // function loadEpisode() {
 //   fetch("http://rickandmortyapi.com/api/episode")
 //   then(res => res.json())
@@ -56,13 +64,7 @@ const createChapters = (episodes) => {
 // }
 
  
-// const createEpisodeLink = () => {
-//     const episodeLink = document.createElement("div")
-//     episodeLink.classList.add("episodeLink")
-//     episodeLink.innerText = episode.name;
-//     episodeLink.addEventListener("click", () => console.log("potato"))
-//     return episodeLink
-// }
+// 
 
 // showEpisodeData
 const fetchEpisodesList = () => {
