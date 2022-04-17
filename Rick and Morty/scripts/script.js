@@ -53,7 +53,8 @@ const createEpisodeLink = (episode) => {
     const episodeLink = document.createElement("div")
     episodesDiv.appendChild(episodeLink)
     episodeLink.classList.add("episodeLink")
-    episodeLink.innerText = `${episode.name}`;
+    episodeLink.innerText = `${episode.name}` +
+     `${episode.episode} | ${episode.air_date}`;
    
     return episodeLink
 }
