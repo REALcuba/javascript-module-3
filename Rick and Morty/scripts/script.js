@@ -36,7 +36,7 @@ loadButton.classList.add("loadButton");
 loadButton.innerText = "load episodes";
 chapters_list.appendChild(loadButton);
 
-const createChapters = (episodes) => {
+const createChaptersList = (episodes) => {
   episodes.results.forEach((episode) => {
     const episodeLiEl = document.createElement("li");
     episodeOlEl.appendChild(episodeLiEl);
@@ -44,7 +44,7 @@ const createChapters = (episodes) => {
     episodeLiEl.innerText = episode.name;
      episodeLiEl.addEventListener("click", () => createEpisodeLink(episode))
     // if(episode.info.next ) {
-      //  episodeLiEl.onCLick = () => console.log("potato");;
+    
     // }
      return episodeLiEl
   });
@@ -53,30 +53,25 @@ const createEpisodeLink = (episode) => {
     const episodeLink = document.createElement("div")
     episodesDiv.appendChild(episodeLink)
     episodeLink.classList.add("episodeLink")
-    episodeLink.innerText = `${episode.name}` +
+    episodeLink.innerText = `${episode.name} ` + 
      `${episode.episode} | ${episode.air_date}`;
    
     return episodeLink
 }
-// function loadEpisode() {
-//   fetch("http://rickandmortyapi.com/api/episode")
-//   then(res => res.json())
-//   then(episodes => showEpisodeList(episodes))
-// }
 
- 
-// 
 
 // showEpisodeData
+
+const showEpisodeData = (episode) => {
+  console.log(episode.name)
+}
 const fetchEpisodesList = () => {
   fetch("https://rickandmortyapi.com/api/episode")
     .then((res) => res.json())
-    .then((episodes) => createChapters(episodes))
+    .then((episodes) => createChaptersList(episodes))
     .catch(Error);
 };
-const showEpisodeData = () => {
-  console.log(episode.name)
-}
+
 //====================================
 // create episodes div
 

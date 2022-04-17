@@ -1,5 +1,6 @@
 /* Rick & Morti section */
 body {
+    font-family: 'Give You Glory', cursive;
     margin: 0;
 }
 .ramApiWrapper{
@@ -15,7 +16,7 @@ body {
     display: inline-flex;
     align-content: center;
     margin: 10px 35px;
-    font-family: 'Give You Glory', cursive;
+    
     font-weight: bold;
     font-size: 23px;
     text-shadow: 2px 2px 4px red, 0 0 1em  #eaf134, 0 0 0.2em  #eaf134;
@@ -37,7 +38,7 @@ body {
     justify-content:space-between;
     background-color: rgb(177, 227, 103);
     width: 280px;
-    height: 650px;
+    height: 100%;
 }
 .loadButton{
     margin-bottom: 20px;
@@ -64,9 +65,9 @@ body {
     display: flex;
 }
 
-.episodeDiv{
-    width: 15%;
-    height:20%;
+.episodeLink{
+    width: 100%;
+    height:8%;
     /* background-color:rgb(149, 108, 108); */
     border-radius: 20px;
     margin: 20px;
