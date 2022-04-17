@@ -43,9 +43,11 @@ const createChaptersList = (episodes) => {
     episodeLiEl.classList.add("episodeLiEl");
     episodeLiEl.innerText = episode.name;
      episodeLiEl.addEventListener("click", () => createEpisodeLink(episode))
+     
+      // episodeLiEl.addEventListener("click", () => showEpisodeData(episode))
     // if(episode.info.next ) {
     
-    // }
+    // }createEpisodeLink(episode)
      return episodeLiEl
   });
 };
@@ -53,18 +55,38 @@ const createEpisodeLink = (episode) => {
     const episodeLink = document.createElement("div")
     episodesDiv.appendChild(episodeLink)
     episodeLink.classList.add("episodeLink")
-    episodeLink.innerText = `${episode.name} ` + 
-     `${episode.episode} | ${episode.air_date}`;
-   
-    return episodeLink
+    episodeLink.innerHTML =`<h2>${episode.name}</h2> ` + 
+     `<h4>${episode.episode} | ${episode.air_date}</h4>`;
+
+
+   episode.characters.forEach(characterUrl =>createCharacterThumbnail(characterUrl))
+    //  character =>{
+    //  const episodeDetailDiv = document.createElement("div")
+  //   episodesDiv.appendChild(episodeDetailDiv)
+  //   episodeDetailDiv.classList.add("episodeDiv")
+  //   episodeDetailDiv.innerText = character.name;
+  //  }
+  //  );
+    
 }
-
-
+function createCharacterThumbnail(characterUrl) {
+  const div =document.createElement("div")
+  div.classList.add("characterThumbnail")
+  episodesDiv.appendChild(div)
+}
+// const showEpisodeData = (episode) => {
+//  episode.results
+//    .forEach((character) => { 
+//      const episodeDetailDiv = document.createElement("div")
+//     episodesDiv.appendChild(episodeDetailDiv)
+//     episodeDetailDiv.classList.add("episodeDiv")
+//     episodeDetailDiv.innerText = character.name;
+//     // episodeDiv.addEventListener("click", () => showEpisodeData)
+//     return episodeDetailDiv}); 
+   
+// }
 // showEpisodeData
 
-const showEpisodeData = (episode) => {
-  console.log(episode.name)
-}
 const fetchEpisodesList = () => {
   fetch("https://rickandmortyapi.com/api/episode")
     .then((res) => res.json())
@@ -79,17 +101,8 @@ const episodesDiv = document.createElement("div");
 chapters_wrapper.appendChild(episodesDiv);
 episodesDiv.id = "episodesDiv";
 
-//create episode div
-// const createEpisodesData = (episode) => {
-//  episode.results
-//    .forEach(episode => console.log(episode.name)); 
-//     const episodeDiv = document.createElement("div")
-//     episodesDiv.appendChild(episodeDiv)
-//     episodeDiv.classList.add("episodeDiv")
-//     episodeDiv.innerText = episode.name;
-//     episodeDiv.addEventListener("click", () => showEpisodeData)
-//     return episodeDiv
-// }
+//create episode Data div
+
 
 // const createEpisodesDiv = (episode) => {
 //   const episodeDiv = document.createElement("div");
