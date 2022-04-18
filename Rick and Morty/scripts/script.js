@@ -60,9 +60,12 @@ const createEpisodeLink = (episode) => {
      `<h4>${episode.episode} | ${episode.air_date}</h4>`;
 
      const charactersDiv = document.createElement("div")
-     charactersDiv.innerHTML =`<div id."charactersDiv">'hola'</div>`
+     episodesDiv.appendChild(charactersDiv)
+     charactersDiv.innerHTML =`<div id="charactersDiv"></div>`
    episode.results
-   episode.characters.forEach(characterUrl =>createCharacterThumbnail(characterUrl))
+   episode.characters
+    .map(characterUrl => createCharacterThumbnail(characterUrl))
+    .forEach(characterThumbnail => charactersDiv.appendChild(characterThumbnail))
     //  character =>{
     //  const episodeDetailDiv = document.createElement("div")
   //   episodesDiv.appendChild(episodeDetailDiv)
@@ -73,10 +76,10 @@ const createEpisodeLink = (episode) => {
     
 }
 function createCharacterThumbnail(characterUrl) {
-  
-  const div =document.createElement("div")
+  document.getElementById("charactersDiv")
+  const div = document.createElement("div")
   div.classList.add("characterThumbnail")
-  episodesDiv.appendChild(div)
+  charactersDiv.appendChild(div)
   div.innerText= characterUrl
 }
 // const showEpisodeData = (episode) => {
