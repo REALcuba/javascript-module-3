@@ -37,7 +37,7 @@ body {
     align-items: center;
     justify-content:space-between;
     background-color: rgb(177, 227, 103);
-    width: 280px;
+    width: 24%;
     height: 100%;
 }
 .loadButton{
@@ -57,12 +57,13 @@ body {
 /* chapters Div */
 
 #episodesDiv{
-    width: 850px;
-    height:600px;
+    width: 85%;
+    height: 100%;
     background-color:white;
     border-radius: 20px;
     margin: 20px;
     display: flex;
+    flex-direction: column;
 }
 
 .episodeLink{
@@ -72,5 +73,10 @@ body {
     border-radius: 20px;
     margin: 20px;
 }
-.episodeLink h2 h4 {
+.episodeLink h2,h4  {
     margin:0}
+.characterThumbnail{
+    width: 10%;
+    height:10%;
+    background-color: #eaf134;
+}

@@ -52,13 +52,16 @@ const createChaptersList = (episodes) => {
   });
 };
 const createEpisodeLink = (episode) => {
+
     const episodeLink = document.createElement("div")
     episodesDiv.appendChild(episodeLink)
     episodeLink.classList.add("episodeLink")
     episodeLink.innerHTML =`<h2>${episode.name}</h2> ` + 
      `<h4>${episode.episode} | ${episode.air_date}</h4>`;
 
-
+     const charactersDiv = document.createElement("div")
+     charactersDiv.innerHTML =`<div id."charactersDiv">'hola'</div>`
+   episode.results
    episode.characters.forEach(characterUrl =>createCharacterThumbnail(characterUrl))
     //  character =>{
     //  const episodeDetailDiv = document.createElement("div")
@@ -70,9 +73,11 @@ const createEpisodeLink = (episode) => {
     
 }
 function createCharacterThumbnail(characterUrl) {
+  
   const div =document.createElement("div")
   div.classList.add("characterThumbnail")
   episodesDiv.appendChild(div)
+  div.innerText= characterUrl
 }
 // const showEpisodeData = (episode) => {
 //  episode.results
