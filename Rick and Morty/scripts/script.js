@@ -36,6 +36,12 @@ loadButton.classList.add("loadButton");
 loadButton.innerText = "load episodes";
 chapters_list.appendChild(loadButton);
 
+// create episodes div
+
+const episodesDiv = document.createElement("div");
+chapters_wrapper.appendChild(episodesDiv);
+episodesDiv.id = "episodesDiv";
+
 const createChaptersList = (episodes) => {
   episodes.results.forEach((episode) => {
     const episodeLiEl = document.createElement("li");
@@ -98,11 +104,6 @@ const fetchEpisodesList = () => {
 };
 
 //====================================
-// create episodes div
-
-const episodesDiv = document.createElement("div");
-chapters_wrapper.appendChild(episodesDiv);
-episodesDiv.id = "episodesDiv";
 
 
 // create Error
