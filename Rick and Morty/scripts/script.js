@@ -54,9 +54,9 @@ const createChaptersList = (episodes) => {
 const createEpisodeLink = (episode) => {
 
     episodesDiv.innerHTML = "<div id = 'episodeLink'></div>"
-    episodeLink.classList.add("episodeLink")
+    // episodeLink.classList.add("episodeLink")
     episodeLink.innerHTML =`<h2>${episode.name}</h2> ` + 
-     `<h4>${episode.episode} | ${episode.air_date}</h4>`;
+     `<h3>${episode.episode} | ${episode.air_date}</h3>`;
 
     
     
@@ -66,35 +66,29 @@ const createEpisodeLink = (episode) => {
    episode.results
    episode.characters
     .map(characterUrl => createCharacterThumbnail(characterUrl))
-    .forEach(characterThumbnail => charactersDiv.appendChild(characterThumbnail))
-    //  character =>{
-    //  const episodeDetailDiv = document.createElement("div")
-  //   episodesDiv.appendChild(episodeDetailDiv)
-  //   episodeDetailDiv.classList.add("episodeDiv")
-  //   episodeDetailDiv.innerText = character.name;
-  //  }
-  //  );
+    .forEach(characterUrl =>  characterUrl)
+   
+    
     
 }
 function createCharacterThumbnail(characterUrl) {
-  document.getElementById("charactersDiv")
-  const div = document.createElement("div")
-  div.classList.add("characterThumbnail")
-  charactersDiv.appendChild(div)
-  div.innerText= characterUrl
+  
+  const characterContainer = document.createElement("div")
+  characterContainer.classList.add("characterThumbnail")
+  charactersDiv.appendChild(characterContainer)
+
+  fetch(characterUrl)
+    .then(res => res.json())
+    .then(character => renderCharacterThumbnail(characterContainer, character));
+    return characterContainer
 }
-// const showEpisodeData = (episode) => {
-//  episode.results
-//    .forEach((character) => { 
-//      const episodeDetailDiv = document.createElement("div")
-//     episodesDiv.appendChild(episodeDetailDiv)
-//     episodeDetailDiv.classList.add("episodeDiv")
-//     episodeDetailDiv.innerText = character.name;
-//     // episodeDiv.addEventListener("click", () => showEpisodeData)
-//     return episodeDetailDiv}); 
-   
-// }
-// showEpisodeData
+function renderCharacterThumbnail (parent, character) {
+parent.innerHTML = `<img src = ${character.image}/>` +
+`<h4>${character.name}</h4>` +
+`<h5>${character.species} | ${character.status}</h5>`
+}
+//----
+
 
 const fetchEpisodesList = () => {
   fetch("https://rickandmortyapi.com/api/episode")
@@ -113,21 +107,6 @@ episodesDiv.id = "episodesDiv";
 //create episode Data div
 
 
-// const createEpisodesDiv = (episode) => {
-//   const episodeDiv = document.createElement("div");
-//   episodesDiv.appendChild(episodeDiv);
-//   episodeDiv.classList.add("episodeDiv");
-// //   episode.forEach((episode) => {
-    
-//     episodeDiv.innerText = `${episode.name}` + `${episode.episode}| ${episode.air_date}`;
-//       const createEpisodeLink = () => {
-    
-// }
-// console.log(createEpisodesDiv)
-        
-// //   }
-// //   );
-// };
 
 //fetching episodes data
 
