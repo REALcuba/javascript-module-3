@@ -104,20 +104,8 @@ const episodesDiv = document.createElement("div");
 chapters_wrapper.appendChild(episodesDiv);
 episodesDiv.id = "episodesDiv";
 
-//create episode Data div
 
-
-
-//fetching episodes data
-
-// function fetchEpisodesData() {
-//   fetch("https://rickandmortyapi.com/api/episode")
-//     .then((res) => res.json())
-//     .then((episode) => createEpisodesData(episode))
-//     .catch(Error);
-// }
-
-// create 
+// create Error
 
 function Error() {
   console.log("not working");
