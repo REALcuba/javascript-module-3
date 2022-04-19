@@ -89,7 +89,7 @@ function createCharacterThumbnail(characterUrl) {
     return characterContainer
 }
 function renderCharacterThumbnail (parent, character) {
-parent.innerHTML = `<img src = ${character.image}/>` +
+parent.innerHTML = `<img src = ${character.image}>` +
 `<h4>${character.name}</h4>` +
 `<h5>${character.species} | ${character.status}</h5>`
 }
@@ -104,7 +104,15 @@ const fetchEpisodesList = () => {
 };
 
 //====================================
+//Load more button
+const loadMoreButton = (episodes) => {
+  const loadButton = document.getElementsByClassName("loadButton")
+  loadButton.addEventListener("click", showMoreEpisodeList)
+}
+const showMoreEpisodeList = (episodes) =>{
+  fetch()
 
+}
 
 // create Error
 
