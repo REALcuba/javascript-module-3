@@ -36,9 +36,9 @@ loadButton.classList.add("loadButton");
 loadButton.id = "loadButton";
 loadButton.innerText = "load episodes";
 chapters_list.appendChild(loadButton);
-loadButton.addEventListener("click", () => {
-  console.log("potato");
-});
+// loadButton.addEventListener("click", () => {
+//   console.log("potato");
+// });
 
 // create episodes div
 
@@ -106,20 +106,22 @@ const fetchEpisodesList = () => {
 //====================================
 
 //Load more button
-// const loadMoreButton = () => {
-//   const loadButton = document.getElementById("loadButton");
-//   loadButton.addEventListener("click", showMoreEpisodeList);
-
-//   const showMoreEpisodeList = () => {
-//     console.log("potato");
-//     if()
-//   episode.info.next
-//   };
+const loadMoreButton = () => {
+  const loadButton = document.getElementById("loadButton");
+  loadButton.addEventListener("click", () => console.log("potato"));
+  return loadButton;
+  //   const showMoreEpisodeList = () => {
+  //     console.log("potato");
+  //     if()
+  //   episode.info.next
+};
 // };
 // create Error
 
 function Error() {
   console.log("not working");
 }
+
+loadMoreButton();
 fetchEpisodesList();
 // fetchEpisodesData();
