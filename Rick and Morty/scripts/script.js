@@ -108,13 +108,17 @@ const fetchEpisodesList = () => {
 //Load more button
 const loadMoreButton = () => {
   const loadButton = document.getElementById("loadButton");
-  loadButton.addEventListener("click", () => console.log("potato"));
+  loadButton.addEventListener("click", () => showMoreEpisodeList());
+
+  const showMoreEpisodeList = () => {
+    console.log("potato");
+  };
   return loadButton;
-  //   const showMoreEpisodeList = () => {
-  //     console.log("potato");
+
   //     if()
   //   episode.info.next
 };
+
 // };
 // create Error
 
