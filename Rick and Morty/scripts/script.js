@@ -48,37 +48,37 @@ const createChaptersList = (episodes) => {
     episodeOlEl.appendChild(episodeLiEl);
     episodeLiEl.classList.add("episodeLiEl");
     episodeLiEl.innerText = episode.name;
-     episodeLiEl.addEventListener("click", () => createEpisodeLink(episode))
-     
-      // episodeLiEl.addEventListener("click", () => showEpisodeData(episode))
+    episodeLiEl.addEventListener("click", () => createEpisodeLink(episode))
+
+    // episodeLiEl.addEventListener("click", () => showEpisodeData(episode))
     // if(episode.info.next ) {
-    
+
     // }createEpisodeLink(episode)
-     return episodeLiEl
+    return episodeLiEl
   });
 };
 const createEpisodeLink = (episode) => {
 
-    episodesDiv.innerHTML = "<div id = 'episodeLink'></div>"
-    // episodeLink.classList.add("episodeLink")
-    episodeLink.innerHTML =`<h2>${episode.name}</h2> ` + 
-     `<h3>${episode.episode} | ${episode.air_date}</h3>`;
+  episodesDiv.innerHTML = "<div id = 'episodeLink'></div>"
+  // episodeLink.classList.add("episodeLink")
+  episodeLink.innerHTML = `<h2>${episode.name}</h2> ` +
+    `<h3>${episode.episode} | ${episode.air_date}</h3>`;
 
-    
-    
-     const charactersDiv = document.createElement("div")
-     episodesDiv.appendChild(charactersDiv)
-     charactersDiv.innerHTML =`<div id="charactersDiv"></div>`
-   episode.results
-   episode.characters
+
+
+  const charactersDiv = document.createElement("div")
+  episodesDiv.appendChild(charactersDiv)
+  charactersDiv.innerHTML = `<div id="charactersDiv"></div>`
+  episode.results
+  episode.characters
     .map(characterUrl => createCharacterThumbnail(characterUrl))
-    .forEach(characterUrl =>  characterUrl)
-   
-    
-    
+    .forEach(characterUrl => characterUrl)
+
+
+
 }
 function createCharacterThumbnail(characterUrl) {
-  
+
   const characterContainer = document.createElement("div")
   characterContainer.classList.add("characterThumbnail")
   charactersDiv.appendChild(characterContainer)
@@ -86,14 +86,23 @@ function createCharacterThumbnail(characterUrl) {
   fetch(characterUrl)
     .then(res => res.json())
     .then(character => renderCharacterThumbnail(characterContainer, character));
-    return characterContainer
+  return characterContainer
 }
-function renderCharacterThumbnail (parent, character) {
-parent.innerHTML = `<img src = ${character.image}>` +
-`<h4>${character.name}</h4>` +
-`<h5>${character.species} | ${character.status}</h5>`
+function renderCharacterThumbnail(parent, character) {
+  parent.innerHTML = `<img src = "${character.image}">` +
+    `<h4>"${character.name}"</h4>` +
+    `<h5>"${character.species}" | "${character.status}"</h5>`
 }
 //----
+//Load more button
+const loadMoreButton = () => {
+  const loadButton = document.getElementsByClassName("loadButton")
+  loadButton.addEventListener("click", showMoreEpisodeList)
+}
+const showMoreEpisodeList = () => {
+  console.log("potato")
+
+}
 
 
 const fetchEpisodesList = () => {
@@ -104,15 +113,6 @@ const fetchEpisodesList = () => {
 };
 
 //====================================
-//Load more button
-const loadMoreButton = (episodes) => {
-  const loadButton = document.getElementsByClassName("loadButton")
-  loadButton.addEventListener("click", showMoreEpisodeList)
-}
-const showMoreEpisodeList = (episodes) =>{
-  fetch()
-
-}
 
 // create Error
 
