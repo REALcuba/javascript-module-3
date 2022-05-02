@@ -10,5 +10,13 @@ describe("01-exercise", () => {
     expect.assertions(1);
 
     // Finish the test
+    //given - arrange
+
+    // when- act
+
+    let result = add(2, 4);
+
+    //then- expect
+    expect(result).toBe(6);
   });
 });

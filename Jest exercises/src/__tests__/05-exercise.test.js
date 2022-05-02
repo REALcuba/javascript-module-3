@@ -23,8 +23,9 @@ describe("05-exercises", () => {
      *
      * The function receives as arguments the previous array and the new item
      */
-
+    const result = addItemToList(prevList, newItem);
     // Write the assertion
+    expect(result).toEqual(prevList, newItem);
   });
 
   test("addUser adds a new user to the list of users", () => {
@@ -44,8 +45,9 @@ describe("05-exercises", () => {
      * @tip
      * you need to use an array matcher that can check objects
      */
-
+    let result = addUser(users, "maria");
     // Write the assertion
+    expect(result).toContain(expectedUser);
   });
 
   test("getWeekDays returns an array of week days", () => {
@@ -60,8 +62,9 @@ describe("05-exercises", () => {
      * You should check that the returned value matches the sub array
      * in the `expectedDays` variable
      */
-
+    let result = getWeekDays();
     // Write the assertion
+    expect(result).toContain(expectedDays);
   });
 
   test("makeAdminUser returns an object with the role property", () => {
@@ -80,8 +83,9 @@ describe("05-exercises", () => {
      * You should check that the returned object sub-matches an object with
      * the properties of the `expectedProperty` variable
      */
-
+    let result = makeAdminUser(user);
     // Write the assertion
+    expect(result).toEqual(expect.objectContaining(expectedProperty));
   });
 
   test("getUserInfo returns an object without the address properties", () => {
@@ -105,7 +109,8 @@ describe("05-exercises", () => {
      * You should check that the returned object doesn't sub-match an object with
      * the properties of the `userAddress` variable
      */
-
+    let result = getUserInfo();
     // Write the assertion
+    expect(result).not.toEqual(expect.objectContaining(userAddress));
   });
 });

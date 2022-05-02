@@ -80,10 +80,13 @@ body {
 .episodeLink h2,h4  {
     margin:0}
 .characterThumbnail{
-    /* width: 80%;
-    height:10%; */
+     /* width: 25%; */
+    /*height:10%; */
     margin: 10px;
     display: inline-grid ;
     justify-items: center;
     background-color: #eaf134;
+}
+.characterThumbnail img {
+    max-width: 150px;
 }

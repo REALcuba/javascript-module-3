@@ -33,8 +33,12 @@ chapters_list.append(episodeOlEl);
 //create load more button
 const loadButton = document.createElement("button");
 loadButton.classList.add("loadButton");
+loadButton.id = "loadButton";
 loadButton.innerText = "load episodes";
 chapters_list.appendChild(loadButton);
+// loadButton.addEventListener("click", () => {
+//   console.log("potato");
+// });
 
 // create episodes div
 
@@ -48,50 +52,47 @@ const createChaptersList = (episodes) => {
     episodeOlEl.appendChild(episodeLiEl);
     episodeLiEl.classList.add("episodeLiEl");
     episodeLiEl.innerText = episode.name;
-    episodeLiEl.addEventListener("click", () => createEpisodeLink(episode))
+    episodeLiEl.addEventListener("click", () => createEpisodeLink(episode));
 
     // episodeLiEl.addEventListener("click", () => showEpisodeData(episode))
     // if(episode.info.next ) {
 
     // }createEpisodeLink(episode)
-    return episodeLiEl
+    return episodeLiEl;
   });
 };
 const createEpisodeLink = (episode) => {
-
-  episodesDiv.innerHTML = "<div id = 'episodeLink'></div>"
+  episodesDiv.innerHTML = "<div id = 'episodeLink'></div>";
   // episodeLink.classList.add("episodeLink")
-  episodeLink.innerHTML = `<h2>${episode.name}</h2> ` +
+  episodeLink.innerHTML =
+    `<h2>${episode.name}</h2> ` +
     `<h3>${episode.episode} | ${episode.air_date}</h3>`;
 
-
-
-  const charactersDiv = document.createElement("div")
-  episodesDiv.appendChild(charactersDiv)
-  charactersDiv.innerHTML = `<div id="charactersDiv"></div>`
-  episode.results
+  const charactersDiv = document.createElement("div");
+  episodesDiv.appendChild(charactersDiv);
+  charactersDiv.innerHTML = `<div id="charactersDiv"></div>`;
+  episode.results;
   episode.characters
-    .map(characterUrl => createCharacterThumbnail(characterUrl))
-    .forEach(characterUrl => characterUrl)
-
-
-
-}
+    .map((characterUrl) => createCharacterThumbnail(characterUrl))
+    .forEach((characterUrl) => characterUrl);
+};
 function createCharacterThumbnail(characterUrl) {
-
-  const characterContainer = document.createElement("div")
-  characterContainer.classList.add("characterThumbnail")
-  charactersDiv.appendChild(characterContainer)
+  const characterContainer = document.createElement("div");
+  characterContainer.classList.add("characterThumbnail");
+  charactersDiv.appendChild(characterContainer);
 
   fetch(characterUrl)
-    .then(res => res.json())
-    .then(character => renderCharacterThumbnail(characterContainer, character));
-  return characterContainer
+    .then((res) => res.json())
+    .then((character) =>
+      renderCharacterThumbnail(characterContainer, character)
+    );
+  return characterContainer;
 }
 function renderCharacterThumbnail(parent, character) {
-  parent.innerHTML = `<img src = "${character.image}">` +
-    `<h4>"${character.name}"</h4>` +
-    `<h5>"${character.species}" | "${character.status}"</h5>`
+  parent.innerHTML =
+    `<img src = ${character.image}>` +
+    `<h4>${character.name}</h4>` +
+    `<h5>${character.species} | ${character.status}</h5>`;
 }
 //----
 //Load more button
@@ -104,7 +105,6 @@ const showMoreEpisodeList = () => {
 
 }
 
-
 const fetchEpisodesList = () => {
   fetch("https://rickandmortyapi.com/api/episode")
     .then((res) => res.json())
@@ -114,10 +114,27 @@ const fetchEpisodesList = () => {
 
 //====================================
 
+//Load more button
+// const loadMoreButton = () => {
+//   const loadButton = document.getElementById("loadButton");
+//   loadButton.addEventListener("click", () => showMoreEpisodeList());
+
+//   const showMoreEpisodeList = () => {
+//     console.log("potato");
+//   };
+//   return loadButton;
+
+//     if()
+//   episode.info.next
+// };
+
+// };
 // create Error
 
 function Error() {
   console.log("not working");
 }
+
+loadMoreButton();
 fetchEpisodesList();
 // fetchEpisodesData();
