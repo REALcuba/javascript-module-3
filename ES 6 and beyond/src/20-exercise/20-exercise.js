@@ -42,11 +42,7 @@ class Person {
 // lastName: "Spark"
 //
 // Store the new instance in the `ana` variable
-<<<<<<< HEAD
-let ana = new Person((firstName = "Ana"), (lastName = "spark"));
-=======
 let ana = new Person("Ana", "Spark");
->>>>>>> 2ec6940d8c17b78a3b7df3e07b4aaf3e2661aad1
 
 // Don’t change the code bellow this line
 export { Person, ana };
