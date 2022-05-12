@@ -96,14 +96,14 @@ function renderCharacterThumbnail(parent, character) {
 }
 //----
 
-const fetchEpisodesList = () => {
-  fetch("https://rickandmortyapi.com/api/episode")
+const fetchEpisodesList = (url) => {
+  fetch(url || "https://rickandmortyapi.com/api/episode")
     .then((res) => res.json())
     .then((episodes) => createChaptersList(episodes))
     .catch(Error);
 };
 
-//====================================
+// ====================================
 
 //Load more button
 const loadMoreButton = () => {
@@ -111,7 +111,11 @@ const loadMoreButton = () => {
   loadButton.addEventListener("click", () => showMoreEpisodeList());
 
   const showMoreEpisodeList = () => {
+    // episode.info.forEach((episode) => {
+    //   () =>
+    //   console.log("potato");
     console.log("potato");
+    // });
   };
   return loadButton;
 
@@ -119,7 +123,6 @@ const loadMoreButton = () => {
   //   episode.info.next
 };
 
-// };
 // create Error
 
 function Error() {
