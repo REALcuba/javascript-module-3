@@ -14,8 +14,11 @@ describe("03-exercises", () => {
      * Make an assertion that the result of executing the multiplyNums function
      * with the `numbers` array as an argument, is equal to the `expected` array
      */
-    
+    const multiplyNums = (numbers) => {
+      numbers.map((number) => number * 2);
+    };
     // Write the assertion
+    expect(multiplyNums).toBe(expected);
   });
 
   test("multiplyNums doesn't mutate the original array", () => {
