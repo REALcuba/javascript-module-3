@@ -19,8 +19,8 @@
 // Create the Person class
 class Person {
     constructor(firstName, lastName) {
-        firstName = "Ana";
-        lastName = "Spark";
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 }
 

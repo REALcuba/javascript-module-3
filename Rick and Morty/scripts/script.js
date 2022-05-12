@@ -95,6 +95,15 @@ function renderCharacterThumbnail(parent, character) {
     `<h5>${character.species} | ${character.status}</h5>`;
 }
 //----
+//Load more button
+const loadMoreButton = () => {
+  const loadButton = document.getElementsByClassName("loadButton")
+  loadButton.addEventListener("click", showMoreEpisodeList)
+}
+const showMoreEpisodeList = () => {
+  console.log("potato")
+
+}
 
 const fetchEpisodesList = (url) => {
   fetch(url || "https://rickandmortyapi.com/api/episode")
@@ -106,22 +115,18 @@ const fetchEpisodesList = (url) => {
 // ====================================
 
 //Load more button
-const loadMoreButton = () => {
-  const loadButton = document.getElementById("loadButton");
-  loadButton.addEventListener("click", () => showMoreEpisodeList());
+// const loadMoreButton = () => {
+//   const loadButton = document.getElementById("loadButton");
+//   loadButton.addEventListener("click", () => showMoreEpisodeList());
 
-  const showMoreEpisodeList = () => {
-    // episode.info.forEach((episode) => {
-    //   () =>
-    //   console.log("potato");
-    console.log("potato");
-    // });
-  };
-  return loadButton;
+//   const showMoreEpisodeList = () => {
+//     console.log("potato");
+//   };
+//   return loadButton;
 
-  //     if()
-  //   episode.info.next
-};
+//     if()
+//   episode.info.next
+// };
 
 // create Error
 
