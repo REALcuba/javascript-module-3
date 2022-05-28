@@ -14,9 +14,10 @@ describe("03-exercises", () => {
      * Make an assertion that the result of executing the multiplyNums function
      * with the `numbers` array as an argument, is equal to the `expected` array
      */
-   
+
     // Write the assertion
-    expect(multiplyNums(numbers)).toBe(expected);
+    let result = multiplyNums(numbers);
+    expect(result).toEqual(expected);
   });
 
   test("multiplyNums doesn't mutate the original array", () => {
@@ -32,6 +33,9 @@ describe("03-exercises", () => {
      */
 
     // Write the assertion
+    let returnArray = multiplyNums(numbers);
+
+    expect(returnArray).not.toEqual(numbers);
   });
 
   test("sanitizeUserData returns an object without sensitive information", () => {
@@ -49,7 +53,7 @@ describe("03-exercises", () => {
     };
 
     expect.assertions(1);
-
+    
     /**
      * Finish the test so that it checks if the result of calling
      * the `sanitizeUserData` function with the `userWithSensitiveInformation`
@@ -59,5 +63,7 @@ describe("03-exercises", () => {
      * to see of calling the function with `userWithSensitiveInformation`
      * returns an object that has the same `key: value` pairs as the `safeUserData`
      */
+     let resultData = sanitizeUserData(userWithSensitiveInformation);
+     expect(resultData).toEqual(safeUserData);
   });
 });
