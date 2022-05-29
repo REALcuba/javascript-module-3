@@ -14,14 +14,14 @@ describe("09-exercises", () => {
 
   // 2. Clear the mock calls to the addSpy so that the tests work
   beforeEach(() => {
-    mock
+    mockFn.mockReset(addSpy);
   });
 
   // 3. Restore the initial implementation of the addSpy using .mockRestore()
 
   test("increment returns 10 for 7 + 3", () => {
     let result = null;
-
+    mockFn.mockRestore(addSpy);
     /**
      * 4. Execute the `increment` function by passing the arguments: (7, 3, calculator)
      *    and store the result in the `result` variable
