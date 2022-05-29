@@ -9,10 +9,13 @@ describe("09-exercises", () => {
   beforeAll(() => {
     // 1. Spy on the 'add' method of the calculator object
     //    and save the spy in the `addSpy` variable
+    addSpy = jest.spyOn(calculator, "add");
   });
 
   // 2. Clear the mock calls to the addSpy so that the tests work
-  beforeEach(() => {});
+  beforeEach(() => {
+    mock
+  });
 
   // 3. Restore the initial implementation of the addSpy using .mockRestore()
 
