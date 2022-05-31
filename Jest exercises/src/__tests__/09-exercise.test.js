@@ -20,18 +20,18 @@ describe("09-exercises", () => {
   // 3. Restore the initial implementation of the addSpy using .mockRestore()
 
   test("increment returns 10 for 7 + 3", () => {
-
+    let result = null;
 
     /**
      * 4. Execute the `increment` function by passing the arguments: (7, 3, calculator)
      *    and store the result in the `result` variable
      */
-    increment(3, 7, calculator);
+    result = increment(3, 7, calculator);
     // You should make 3 assertions in this test, see bellow
-    expect.assertions(2);
+    expect.assertions(3);
 
     // 5. Make an assertion that the `result` is 10
-
+    expect(result).toBe(10);
     // 6. Make an assertion that the addSpy has been called 1 time
     expect(addSpy).toHaveBeenCalledTimes(1);
     // 7. Make an assertion that the addSpy has been called with the
