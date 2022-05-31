@@ -105,14 +105,14 @@ const showMoreEpisodeList = () => {
 
 }
 
-const fetchEpisodesList = () => {
-  fetch("https://rickandmortyapi.com/api/episode")
+const fetchEpisodesList = (url) => {
+  fetch(url || "https://rickandmortyapi.com/api/episode")
     .then((res) => res.json())
     .then((episodes) => createChaptersList(episodes))
     .catch(Error);
 };
 
-//====================================
+// ====================================
 
 //Load more button
 // const loadMoreButton = () => {
@@ -128,7 +128,6 @@ const fetchEpisodesList = () => {
 //   episode.info.next
 // };
 
-// };
 // create Error
 
 function Error() {

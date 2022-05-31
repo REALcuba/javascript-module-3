@@ -42,17 +42,17 @@ describe("06-exercises", () => {
    * need to wait for the promise and the result to check if the resolved
    * data is equal to the `expectedUser` variable.
    */
-  test("fetchUserOK resolves the user data", async () => {
+  test("fetchUserOK resolves the user data", (done) => {
     const userID = 5;
     const expectedUser = { id: userID, name: "Alex" };
 
     expect.assertions(1);
 
     // Finish the test
-
-    let result = await fetchUserOK(userID);
-
-    expect(result).toEqual(expectedUser);
+    fetchUserOK(userID).then((result) => {
+      expect(result).toEqual(expectedUser);
+      done();
+    });
   });
 
   /**
@@ -67,17 +67,16 @@ describe("06-exercises", () => {
    * the result to check if the rejected message is the same
    * as the `expectedMessage` variable.
    */
-  test("fetchUserFail rejects with an error message", async () => {
+  test("fetchUserFail rejects with an error message", (done) => {
     const userID = 5;
     const expectedMessage = `User ${userID} not found`;
 
     expect.assertions(1);
 
     // Finish the test
-    try {
-      await fetchUserFail(userID);
-    } catch {
-      expect(error).toEqual(expectedMessage);
-    }
+    const result = fetchUserFail(userID).catch((rejectedMessage) => {
+      expect(rejectedMessage).toEqual(expectedMessage);
+      done();
+    });
   });
 });
