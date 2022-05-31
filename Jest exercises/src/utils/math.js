@@ -8,6 +8,7 @@ export const calculator = {
 };
 
 export function increment(a, b, methods) {
+
   const result = methods.add(a, b);
 
   return result;
