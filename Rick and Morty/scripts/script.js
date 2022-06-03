@@ -31,14 +31,15 @@ episodeOlEl.classList.add("episodeOlEl");
 chapters_list.append(episodeOlEl);
 
 //create load more button
+
 const loadButton = document.createElement("button");
 loadButton.classList.add("loadButton");
 loadButton.id = "loadButton";
 loadButton.innerText = "load episodes";
 chapters_list.appendChild(loadButton);
-// loadButton.addEventListener("click", () => {
-//   console.log("potato");
-// });
+
+
+
 
 // create episodes div
 
@@ -54,19 +55,17 @@ const createChaptersList = (episodes) => {
     episodeLiEl.innerText = episode.name;
     episodeLiEl.addEventListener("click", () => createEpisodeLink(episode));
 
-    // episodeLiEl.addEventListener("click", () => showEpisodeData(episode))
-    // if(episode.info.next ) {
 
-    // }createEpisodeLink(episode)
     return episodeLiEl;
   });
 };
 const createEpisodeLink = (episode) => {
   episodesDiv.innerHTML = "<div id = 'episodeLink'></div>";
-  // episodeLink.classList.add("episodeLink")
+
   episodeLink.innerHTML =
     `<h2>${episode.name}</h2> ` +
-    `<h3>${episode.episode} | ${episode.air_date}</h3>`;
+    `<h3>${episode.episode} | ${episode.air_date}</h3>`
+
 
   const charactersDiv = document.createElement("div");
   episodesDiv.appendChild(charactersDiv);
@@ -97,12 +96,16 @@ function renderCharacterThumbnail(parent, character) {
 //----
 //Load more button
 const loadMoreButton = () => {
-  const loadButton = document.getElementsByClassName("loadButton")
-  loadButton.addEventListener("click", showMoreEpisodeList)
-}
-const showMoreEpisodeList = () => {
-  console.log("potato")
+  const loadButton = document.getElementById("loadButton")
 
+  loadButton.addEventListener("click", showMoreEpisodeList)
+
+}
+let pageCount = 1;
+const showMoreEpisodeList = () => {
+  pageCount++;
+  const url = `https://rickandmortyapi.com/api/episode/?={pageCount}`
+  fetchEpisodesList(url)
 }
 
 const fetchEpisodesList = (url) => {
@@ -112,21 +115,7 @@ const fetchEpisodesList = (url) => {
     .catch(Error);
 };
 
-// ====================================
 
-//Load more button
-// const loadMoreButton = () => {
-//   const loadButton = document.getElementById("loadButton");
-//   loadButton.addEventListener("click", () => showMoreEpisodeList());
-
-//   const showMoreEpisodeList = () => {
-//     console.log("potato");
-//   };
-//   return loadButton;
-
-//     if()
-//   episode.info.next
-// };
 
 // create Error
 
