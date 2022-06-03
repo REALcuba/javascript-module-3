@@ -79,6 +79,9 @@ function createCharacterThumbnail(characterUrl) {
   const characterContainer = document.createElement("div");
   characterContainer.classList.add("characterThumbnail");
   charactersDiv.appendChild(characterContainer);
+  characterContainer.id = "characterContainer"
+  characterContainer.addEventListener("click", renderCharacterDetails
+  )
 
   fetch(characterUrl)
     .then((res) => res.json())
@@ -87,11 +90,25 @@ function createCharacterThumbnail(characterUrl) {
     );
   return characterContainer;
 }
-function renderCharacterThumbnail(parent, character) {
-  parent.innerHTML =
+
+function renderCharacterThumbnail(characterContainer, character) {
+  characterContainer.innerHTML =
     `<img src = ${character.image}>` +
     `<h4>${character.name}</h4>` +
     `<h5>${character.species} | ${character.status}</h5>`;
+}
+function renderCharacterDetails(characterContainer, character) {
+  document.getElementById('characterContainer')
+
+  characterContainer.innerHTML = console.log(`<h4>${character}</h4>`);
+
+}
+const fetchCharaterDetails = (character) => {
+  document.getElementById(`${character.id}`)
+  fetch("https://rickandmortyapi.com/api/character/id")
+    .then((res) => res.json())
+    .then((character) => renderCharacterDetails(character))
+    .catch(Error);
 }
 //----
 //Load more button
@@ -107,6 +124,7 @@ const showMoreEpisodeList = () => {
   const url = `https://rickandmortyapi.com/api/episode/?={pageCount}`
   fetchEpisodesList(url)
 }
+
 
 const fetchEpisodesList = (url) => {
   fetch(url || "https://rickandmortyapi.com/api/episode")
@@ -125,4 +143,4 @@ function Error() {
 
 loadMoreButton();
 fetchEpisodesList();
-// fetchEpisodesData();
+
