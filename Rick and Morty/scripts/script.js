@@ -53,7 +53,7 @@ const createChaptersList = (episodes) => {
     episodeOlEl.appendChild(episodeLiEl);
     episodeLiEl.classList.add("episodeLiEl");
     episodeLiEl.innerText = episode.name;
-    episodeLiEl.addEventListener("click", () => createEpisodeLink(episode));
+    episodeLiEl.onclick = () => createEpisodeLink(episode);
 
 
     return episodeLiEl;
@@ -80,7 +80,7 @@ function createCharacterThumbnail(characterUrl) {
   characterContainer.classList.add("characterThumbnail");
   charactersDiv.appendChild(characterContainer);
   characterContainer.id = "characterContainer"
-  characterContainer.addEventListener("click", renderCharacterDetails
+  characterContainer.addEventListener("click", showCharacterDetails
   )
 
   fetch(characterUrl)
@@ -97,17 +97,27 @@ function renderCharacterThumbnail(characterContainer, character) {
     `<h4>${character.name}</h4>` +
     `<h5>${character.species} | ${character.status}</h5>`;
 }
-function renderCharacterDetails(characterContainer, character) {
-  document.getElementById('characterContainer')
+const createCharacterDetails = (character) => {
+  document.getElementById("episodeLink")
 
-  characterContainer.innerHTML = console.log(`<h4>${character}</h4>`);
+  console.log(character.results);
+  character.results.map(character => {
+    episodeLink.innerHTML = `<img src=${character.image
+      } alt="" >` + `<h2>${character.name}</h2>`
+
+    console.log(`${character.name}`);
+
+
+  })
+    ;
+
 
 }
-const fetchCharaterDetails = (character) => {
-  document.getElementById(`${character.id}`)
-  fetch("https://rickandmortyapi.com/api/character/id")
+
+const showCharacterDetails = () => {
+  fetch("https://rickandmortyapi.com/api/character")
     .then((res) => res.json())
-    .then((character) => renderCharacterDetails(character))
+    .then((character) => createCharacterDetails(character))
     .catch(Error);
 }
 //----
