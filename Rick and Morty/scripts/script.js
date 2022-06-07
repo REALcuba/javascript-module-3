@@ -80,7 +80,7 @@ function createCharacterThumbnail(characterUrl) {
   characterContainer.classList.add("characterThumbnail");
   charactersDiv.appendChild(characterContainer);
   characterContainer.id = "characterContainer"
-  characterContainer.addEventListener("click", showCharacterDetails
+  characterContainer.addEventListener("click", fetchCharacterDetails
   )
 
   fetch(characterUrl)
@@ -93,29 +93,30 @@ function createCharacterThumbnail(characterUrl) {
 
 function renderCharacterThumbnail(characterContainer, character) {
   characterContainer.innerHTML =
-    `<img src = ${character.image}>` +
+    `<img id = ${character.id} src = ${character.image}>` +
     `<h4>${character.name}</h4>` +
     `<h5>${character.species} | ${character.status}</h5>`;
 }
+
+
 const createCharacterDetails = (character) => {
   document.getElementById("episodeLink")
-
-  console.log(character.results);
-  character.results.map(character => {
-    episodeLink.innerHTML = `<img src=${character.image
-      } alt="" >` + `<h2>${character.name}</h2>`
-
-    console.log(`${character.name}`);
+  document.getElementById("charactersDiv")
+  console.log(character);
 
 
-  })
-    ;
+  episodeLink.innerHTML = `<img src=${character.image
+    } alt="${character.name}" >` + `<h2>${character.name}</h2>` + `<h3>${character.status} | ${character.species} | ${character.origin.name}</h3>` +
+    `<button onClick= "episodeLink.innerHTML= <h2>${character.origin.name}</h2> ">info of ${character.origin.name}</button>`
+
 
 
 }
 
-const showCharacterDetails = () => {
-  fetch("https://rickandmortyapi.com/api/character")
+const fetchCharacterDetails = (event) => {
+  console.log(event);
+
+  fetch(`https://rickandmortyapi.com/api/character/${event.srcElement.id}`)
     .then((res) => res.json())
     .then((character) => createCharacterDetails(character))
     .catch(Error);
@@ -131,7 +132,8 @@ const loadMoreButton = () => {
 let pageCount = 1;
 const showMoreEpisodeList = () => {
   pageCount++;
-  const url = `https://rickandmortyapi.com/api/episode/?={pageCount}`
+  console.log(pageCount);
+  const url = `https://rickandmortyapi.com/api/episode/?page=${pageCount}`
   fetchEpisodesList(url)
 }
 
@@ -147,8 +149,8 @@ const fetchEpisodesList = (url) => {
 
 // create Error
 
-function Error() {
-  console.log("not working");
+function Error(error) {
+  console.log(error);
 }
 
 loadMoreButton();
